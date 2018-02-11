@@ -42,6 +42,13 @@ public class CacheConfiguration {
             cm.createCache(io.eduka.super.politicos.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(io.eduka.super.politicos.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(io.eduka.super.politicos.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(io.eduka.super.politicos.domain.Politico.class.getName(), jcacheConfiguration);
+            cm.createCache(io.eduka.super.politicos.domain.Politico.class.getName() + ".atributos", jcacheConfiguration);
+            cm.createCache(io.eduka.super.politicos.domain.TipoAtributo.class.getName(), jcacheConfiguration);
+            cm.createCache(io.eduka.super.politicos.domain.TipoAtributo.class.getName() + ".atributos", jcacheConfiguration);
+            cm.createCache(io.eduka.super.politicos.domain.LogAtualizacao.class.getName(), jcacheConfiguration);
+            cm.createCache(io.eduka.super.politicos.domain.LogAtualizacao.class.getName() + ".logReferencias", jcacheConfiguration);
+            cm.createCache(io.eduka.super.politicos.domain.PoliticoAtributo.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

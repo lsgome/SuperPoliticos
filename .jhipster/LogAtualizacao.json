@@ -1,0 +1,28 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "logReferencia",
+            "otherEntityName": "politicoAtributo",
+            "otherEntityRelationshipName": "logAtualizacao"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "descricao",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "data",
+            "fieldType": "Instant"
+        }
+    ],
+    "changelogDate": "20180211194352",
+    "entityTableName": "log_atualizacao",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "sp"
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity PoliticoAtributo.
+    -->
+    <changeSet id="20180211194353-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="politico_id"
+                                 baseTableName="politico_atributo"
+                                 constraintName="fk_politico_atributo_politico_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="politico"/>
+
+        <addForeignKeyConstraint baseColumnNames="tipo_atributo_id"
+                                 baseTableName="politico_atributo"
+                                 constraintName="fk_politico_atributo_tipo_atributo_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tipo_atributo"/>
+
+        <addForeignKeyConstraint baseColumnNames="log_atualizacao_id"
+                                 baseTableName="politico_atributo"
+                                 constraintName="fk_politico_atributo_log_atualizacao_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="log_atualizacao"/>
+
+    </changeSet>
+</databaseChangeLog>

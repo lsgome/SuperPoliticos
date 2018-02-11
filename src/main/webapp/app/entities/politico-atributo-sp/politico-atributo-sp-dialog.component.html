@@ -1,0 +1,51 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myPoliticoAtributoLabel">Create or edit a Politico Atributo</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!politicoAtributo.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="politicoAtributo.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_valor">Valor</label>
+            <input type="number" class="form-control" name="valor" id="field_valor"
+                [(ngModel)]="politicoAtributo.valor" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" for="field_politico">Politico</label>
+            <select class="form-control" id="field_politico" name="politico" [(ngModel)]="politicoAtributo.politico" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="politicoOption.id === politicoAtributo.politico?.id ? politicoAtributo.politico : politicoOption" *ngFor="let politicoOption of politicos; trackBy: trackPoliticoById">{{politicoOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_tipoAtributo">Tipo Atributo</label>
+            <select class="form-control" id="field_tipoAtributo" name="tipoAtributo" [(ngModel)]="politicoAtributo.tipoAtributo" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="tipoAtributoOption.id === politicoAtributo.tipoAtributo?.id ? politicoAtributo.tipoAtributo : tipoAtributoOption" *ngFor="let tipoAtributoOption of tipoatributos; trackBy: trackTipoAtributoById">{{tipoAtributoOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_logAtualizacao">Log Atualizacao</label>
+            <select class="form-control" id="field_logAtualizacao" name="logAtualizacao" [(ngModel)]="politicoAtributo.logAtualizacao" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="logAtualizacaoOption.id === politicoAtributo.logAtualizacao?.id ? politicoAtributo.logAtualizacao : logAtualizacaoOption" *ngFor="let logAtualizacaoOption of logatualizacaos; trackBy: trackLogAtualizacaoById">{{logAtualizacaoOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>
