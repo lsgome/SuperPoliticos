@@ -1,0 +1,50 @@
+entity Politico {
+    nome String required,
+    tipoPolitico TipoPolitico required
+}
+
+enum TipoValorAtributo {
+    INTEIRO_CRESCENTE,
+    INTEIRO_DECRESCENTE
+}
+enum TipoPolitico {
+	VEREADORES,
+    DEPUTADOS_ESTADUAIS,
+    PREFEITOS,
+    DEPUTADOS_FEDERAIS,
+    SENADORES,
+    GOVERNADORES,
+	PRESIDENTES
+}
+
+entity TipoAtributo {
+	nome String required,
+	tipo String required,
+    tipoValorAtributo TipoValorAtributo required
+}
+entity LogAtualizacao {
+	descricao String,
+	data Instant
+}
+
+entity PoliticoAtributo {
+	valor Long
+}
+
+relationship OneToMany {
+	Politico{atributos} to PoliticoAtributo
+}
+relationship OneToMany {
+	TipoAtributo{atributos} to PoliticoAtributo
+}
+relationship OneToMany {
+	LogAtualizacao{logReferencia} to PoliticoAtributo
+}
+
+// Set pagination options
+paginate Politico with pagination
+
+// Set service options to all except few
+service all with serviceImpl 
+// Set an angular suffix
+angularSuffix * with sp
