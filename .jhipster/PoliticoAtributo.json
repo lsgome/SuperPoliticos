@@ -1,0 +1,36 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "politico",
+            "otherEntityName": "politico",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "tipoAtributo",
+            "otherEntityName": "tipoAtributo",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "logAtualizacao",
+            "otherEntityName": "logAtualizacao",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "valor",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20180211194353",
+    "entityTableName": "politico_atributo",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "sp"
+}

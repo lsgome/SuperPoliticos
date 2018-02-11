@@ -1,0 +1,35 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "atributos",
+            "otherEntityName": "politicoAtributo",
+            "otherEntityRelationshipName": "politico"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tipoPolitico",
+            "fieldType": "TipoPolitico",
+            "fieldValues": "VEREADORES,DEPUTADOS_ESTADUAIS,PREFEITOS,DEPUTADOS_FEDERAIS,SENADORES,GOVERNADORES,PRESIDENTES",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20180211194350",
+    "entityTableName": "politico",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "sp"
+}
